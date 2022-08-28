@@ -1,6 +1,5 @@
 package com.example.WeatherDispatcher.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -12,14 +11,13 @@ public class WeatherResult {
 
 
     @Data
-    class Main {
-        @JsonProperty("temp")
-        public Double temp;
+    public class Main {
+        private Double temp;
     }
 
+
     @Data
-    class Wind {
-        @JsonProperty("speed")
-        public Double speed;
+    public class Wind {
+        private Double speed;
     }
 }

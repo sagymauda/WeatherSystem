@@ -2,7 +2,7 @@ package com.example.WeatherDispatcher.utils;
 
 public class TemperatureUtil {
 
-    public static boolean checkDiff(Double num1, Double num2, Integer threshold) {
+    public static boolean checkTemperatureDiff(Double num1, Double num2, Integer threshold) {
         Double diff;
         Double result;
         if (num1 > num2) {

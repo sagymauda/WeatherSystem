@@ -1,6 +1,7 @@
 package com.example.MsweatherRequest.configuration;
 
 
+import com.example.MsweatherRequest.dto.WeatherRequestDto;
 import com.example.MsweatherRequest.model.WeatherRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -14,13 +15,9 @@ public class RabbitProducer {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-    public RabbitProducer(final RabbitTemplate rabbitTemplate) {
-        this.rabbitTemplate = rabbitTemplate;
-    }
-
-    public void SendToQueue(WeatherRequest weatherRequest ) {
-        log.info("sending  cityName {}", weatherRequest);
-        rabbitTemplate.convertAndSend(RabbitMqConfig.MESSAGE_EXCHANGE, RabbitMqConfig.ROUTING_KEY , weatherRequest);
+    public void SendToQueue(WeatherRequestDto weatherRequestDto ) {
+        log.info("sending  cityName {}", weatherRequestDto);
+        rabbitTemplate.convertAndSend(RabbitMqConfig.MESSAGE_EXCHANGE, RabbitMqConfig.ROUTING_KEY , weatherRequestDto);
         log.info("sent was success");
     }
 }
